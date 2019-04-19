@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>新闻阅读订阅列表</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="../css/style1.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="app">
+        <section class="aui-flexView">
+            <header class="aui-navBar aui-navBar-fixed b-line">
+                <a href="javascript:;" class="aui-navBar-item">
+                    <i class="icon "></i>
+                </a>
+                <div class="aui-center">
+                    <span class="aui-center-title">订阅</span>
+                </div>
+                <a href="me_subscription.html" class="aui-navBar-item">
+                    <span class="aui-cancel">已订阅</span>
+                </a>
+            </header>
+            <section class="aui-scrollView">
+                <div class="aui-form-search b-line">
+                    <div class="aui-form-search-box">
+                        <span class="aui-search-btn"></span>
+                        <input class="input-box ng-untouched ng-pristine ng-valid" maxlength="30" name="searchValue" type="text" placeholder="">
+                    </div>
+                </div>
+                <div class="m-slider" data-ydui-slider>
+                    <div class="slider-wrapper">
+                        <div class="slider-item">
+                            <a href="javascript:;">
+                                <img src="../images/banner.jpg">
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <a href="javascript:;">
+                                <img src="../images/banner.jpg">
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <a href="javascript:;">
+                                <img src="../images/banner.jpg">
+                            </a>
+                        </div>
+                        <div class="slider-item">
+                            <a href="javascript:;">
+                                <img src="../images/banner.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slider-pagination"></div>
+                </div>
+                <div class="aui-head b-line">
+                    <div class="aui-flex">
+                        <div class="aui-flex-box">
+                            <p>编辑推荐站点</p>
+                        </div>
+                        <div class="aui-arrow"></div>
+                    </div>
+                </div>
+                <div class="aui-site">
+                    <a v-for=" (item,index) in dingYueList " href="javascript:void(0);" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img v-bind:src="item.fengmian" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>{{item.name}}<span class="aui-cancel">{{item.fenlei}}</span></h2>
+                            <p>{{item.descript}}</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span v-if="!item.flagdingyue" @click="dingYue(index)" class="aui-cancel" style="color:red;">订阅</span>
+                            <span v-if="item.flagdingyue" @click="dingYue(index)" class="aui-cancel" style="color:green;">取消订阅</span>
+                        </div>
+                    </a>
+                    <!--
+                     <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img src="../images/read-logo-002.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>凤凰评论  <span class="aui-cancel">科学</span></h2>
+                            <p>当岁月凝结成文明</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span class="aui-cancel">订阅</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img src="../images/read-logo-003.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>爱饭物品  <span class="aui-cancel">科学</span></h2>
+                            <p>当岁月凝结成文明</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span class="aui-cancel">订阅</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img src="../images/read-logo-004.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>知乎  <span class="aui-cancel">科学</span></h2>
+                            <p>当岁月凝结成文明</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span class="aui-cancel">订阅</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img src="../images/read-logo-002.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>物质日历  <span class="aui-cancel">科学</span></h2>
+                            <p>当岁月凝结成文明</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span class="aui-cancel">订阅</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img src="../images/read-logo-003.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>物质日历  <span class="aui-cancel">科学</span></h2>
+                            <p>当岁月凝结成文明</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span class="aui-cancel">订阅</span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-site-img">
+                            <img src="../images/read-logo-004.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>物质日历  <span class="aui-cancel">科学</span></h2>
+                            <p>当岁月凝结成文明</p>
+                        </div>
+                        <div class="aui-site-btn">
+                            <span class="aui-cancel">订阅</span>
+                        </div>
+                    </a>
+                        -->
+                </div>
+            </section>
+            <footer class="aui-tabBar aui-tabBar-fixed">
+                <ul>
+                    <li class="aui-tabBar-item">
+                        <a id="home" href="main.html">
+                            <img src="../images/icon-footer01.png" alt="">
+                            <h4>首页</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item">
+                        <a id="find" href="find.html">
+                            <img src="../images/icon-footer02.png" alt="">
+                            <h4>发现</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item active">
+                        <a id="subscription" href="subscription.html">
+                            <img src="../images/icon-footer03.png" alt="">
+                            <h4>订阅</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item">
+                        <a id="me" href="me.html">
+                            <img src="../images/icon-footer04.png" alt="">
+                            <h4>我的</h4>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </section>
+    </div>
+    <script src="../js/vue2.6.mini.js"></script>
+    <script src="../js/H.js"></script>
+    <script src="../js/common.js"></script>
+
+    <script type="text/javascript">
+        H.ready(function () {
+            vm.init();
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flagIsLogin: false,
+                zhanghao: "",
+                dingYueList: [],
+                myDingYueList: []
+            },
+            methods: {
+                init: function () {
+                    //判断是否登录
+                    var zhangHao = H.getStorage("zhanghao");
+                    if (typeof (zhangHao) != 'undefined' && zhangHao.length > 0) {
+                        vm.flagIsLogin = true;
+                        vm.zhanghao = zhangHao;
+                    }
+                    vm.loadDingYueList();
+                    //判断自己的订阅列表存储
+                    if (typeof (H.getStorage("mydingyuelist")) != 'undefined') vm.myDingYueList = H.getStorage("mydingyuelist");
+                    vm.checkMyDingYue();
+                },
+                checkIsExits: function (id) {
+                    if (typeof (H.getStorage("mydingyuelist")) == 'undefined') return false;
+                    for (var j = 0; j < vm.myDingYueList.length; j++) {
+                        if (id == vm.myDingYueList[j].id) return true;
+                    }
+                    return false;
+                },
+                checkMyDingYue: function () {
+                    var checkresult = false;
+                    if (typeof (H.getStorage("mydingyuelist")) == 'undefined') return false;
+                    vm.myDingYueList = H.getStorage("mydingyuelist");
+                    if (vm.myDingYueList.length <= 0) return false;
+                    for (var i = 0; i < vm.dingYueList.length; i++) {
+                        for (var j = 0; j < vm.myDingYueList.length; j++) {
+                            if (vm.dingYueList[i].id == vm.myDingYueList[j].id) {
+                                vm.dingYueList[i].flagdingyue = true;
+                            }
+                        }
+                    }
+                },
+                loadDingYueList: function () {
+                    vm.dingYueList = [
+                        {
+                            id: "1",
+                            name: "物质日历",
+                            descript: "当岁月凝结成文明",
+                            fenlei: "科学",
+                            fengmian: "../images/read-logo-004.png",
+                            flagdingyue: false
+                        }, {
+                            id: "2",
+                            name: "物质日历",
+                            descript: "当岁月凝结成文明",
+                            fenlei: "科学",
+                            fengmian: "../images/read-logo-003.png",
+                            flagdingyue: false
+                        }, {
+                            id: "3",
+                            name: "物质日历",
+                            descript: "当岁月凝结成文明",
+                            fenlei: "科学",
+                            fengmian: "../images/read-logo-002.png",
+                            flagdingyue: false
+                        }
+                    ];
+
+                },
+                dingYue: function (index) {
+                    if (!vm.flagIsLogin) {
+                        alert("您还没有登录，请您先登录！");
+                        return;
+                    }
+                    var dingyueitem = vm.dingYueList[index];
+                    var tipMsg = "";
+                    //存在了 就取消订阅
+                    if (vm.checkIsExits(dingyueitem.id)) {
+                        dingyueitem.flagdingyue = false;
+                        for (var i = 0; i < vm.myDingYueList.length; i++) {
+                            if (vm.myDingYueList[i].id == dingyueitem.id) vm.myDingYueList.splice(i, 1);
+                        }
+                        tipMsg = "取消成功";
+                    }
+                        //不存在就 订阅
+                    else {
+                        dingyueitem.flagdingyue = true;
+                        vm.myDingYueList.push(dingyueitem);
+                        tipMsg = "订阅成功";
+                    }
+                    H.setStorage("mydingyuelist", vm.myDingYueList);
+                    H.toast(tipMsg);
+                }
+
+            }
+        });
+
+    </script>
+</body>
+</html>

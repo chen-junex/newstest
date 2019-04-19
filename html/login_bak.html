@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>one</title>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="../css/stylelogin.css">
+<link rel="stylesheet" type="text/css" href="../css/theme.css">
+<link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.3.2.min.css">
+<!--<script src="../js/jquery.mobile-1.3.2.min.js"></script>-->
+<!--<script src="../js/jquery.min.js"></script>-->
+<!--<script src="../js/js.cookie.js"></script>-->
+<!--<script src="../js/app.js"></script>-->
+
+<body>
+<div data-role="page">
+    <div data-role="content" class="login-wrap">
+        <div class="login-input-box">
+            <div class="logo">
+
+            </div>
+            <div class="line1">
+                <img src="../images/user.png">
+                <input type="text" class="user" id="login_user_name" value="admin" onfocus="if(value=='用户名') {value=''}"
+                       onblur="if (value=='') {value='用户名'}" data-role="none">
+            </div>
+            <div class="line2">
+                <img src="../images/lock.png">
+                <input type="password" class="lock" id="login_password" value="123456" onfocus="if(value=='密码') {value=''}"
+                       onblur="if (value=='') {value='密码'}" data-role="none">
+            </div>
+            <div class="chose">
+                <a href="register.html" data-ajax="false" class="register" data-role="none"
+                   data-transition="slide">注册</a>
+                <a href="forget.html" data-ajax="false" class="forgive" data-role="none">忘记密码</a>
+                <a class="login" onclick="login()">登陆</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script type="text/javascript">-->
+    <!--$(function () {-->
+        <!--var COOKIE_NAME = 'test_cookie';-->
+<!--//设置cookie，通过时间间隔-->
+        <!--$('a').eq(0).click(function () {-->
+            <!--$.cookie('cookieName', 'cookieValue', {path: '/', expires: 1});-->
+            <!--return false;-->
+        <!--});-->
+<!--// 设置cookie，到期时间-->
+        <!--$('a').eq(1).click(function () {-->
+            <!--var date = new Date();-->
+            <!--date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));-->
+            <!--$.cookie('cookieName', 'cookieValue', {path: '/', expires: date});-->
+            <!--return false;-->
+        <!--});-->
+<!--// 获取 cookie-->
+        <!--$('a').eq(2).click(function () {-->
+
+            <!--alert($.cookie('cookieName'));-->
+            <!--return false;-->
+        <!--});-->
+<!--删除cookie-->
+        <!--$('a').eq(3).click(function () {-->
+            <!--$.cookie('cookieName', null, {path: '/'});-->
+            <!--return false;-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+
+<script>
+    function login() {
+        //  var date = new Date();
+        //  date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
+        //  $.cookie('username', 'cookieValue', {path: '/', expires: date});
+        // alert($.cookie('username'));
+        // alert(url);
+        var uname = document.getElementById("login_user_name").value;
+        var upw = document.getElementById("login_password").value;
+
+        //alert(uname+upw);
+        api.showProgress();//显示加载进度框
+        //使用api.ajax请求数据，具体使用方法和参数请看官方文档，这里使用get方法演示
+        api.ajax({
+            url: 'http://192.168.43.5:8080/news/common/login/userlogin?username=' + uname + '&password=' + upw,
+            method: 'get',
+            cache: 'false',
+            timeout: 30,
+        }, function (ret, err) {
+            api.hideProgress();//隐藏加载进度框
+           // alert(ret.state);
+            if (ret.state == 0) {
+                alert("用户名或密码错误");
+            }
+            else {
+                // apiready = function() {
+                // $api.setStorage('username', 'chen');}
+                // var date = new Date();
+                // date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
+                // $.cookie('username', uname, {path: '/', expires: date});
+                // $.cookie('password', upw, {path: '/', expires: date});
+                // alert($.cookie('username'));
+                // if (ret.usernama != "") {
+                //     alert("登录成功");
+                //登录界面
+                //api.sendEvent广播登录成功事件
+
+
+
+                    //api.setPrefs设置登录成功状态
+                    // api.setPrefs({
+                    //     key: 'loginStatus',
+                    //     value: 'loginSuccess'
+                    // });
+
+                // api.addEventListener({
+                //
+                //     name: 'loginSuccess'
+                // }, function(ret, err){
+                //     if( ret ){
+                //         //执行登录成功相关指令
+                //         alert("已登录用户")
+                //     }
+                // });
+                    // setInterval("redirect();", 2000);
+                    // $.mobile.loading("show", {
+                    //     theme: 'b', text: '登录成功!正在跳转...', html: '登录成功!正在跳转...',
+                    //     textVisible: true, textonly: true
+                    // });
+
+                api.toast({
+                    msg: '登录成功!正在跳转...',
+                    duration: 1000,
+                    location: 'middle'
+                });
+                    setInterval("redirect();", 1000);
+                }
+                // }
+
+            // }
+        });
+    }
+
+    function redirect() {
+        api.sendEvent({
+            name: 'loginSuccess',
+            extra: {
+                msg: '登出成功'
+            }
+        });
+        window.location.href = "main.html";
+    }
+
+    // //登录界面
+    // //api.sendEvent广播登录成功事件
+    // api.sendEvent({
+    //     name: 'loginSuccess'
+    // });
+    // //api.setPrefs设置登录成功状态
+    // api.setPrefs({
+    //     key: 'loginStatus',
+    //     value: 'loginSuccess'
+    // });
+    // //修改界面
+    // //api.addEventListener监听登录成功事件（需执行才可生效）
+    // api.addEventListener({
+    //     name: 'loginSuccess'
+    // }, function(ret, err){
+    //     if( ret ){
+    //         //执行登录成功相关指令
+    //     }
+    // });
+</script>
+</body>
+
+<script src="../js/jquery-1.8.3.min.js"></script>
+<script src="../js/jquery.mobile-1.3.2.min.js"></script>
+</html>

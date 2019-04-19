@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+    <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"> </script>
+    <script>
+        $(  "#mypanel"  ).trigger(  "updatelayout"  );
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("div").bind("swiperight",function(event){
+                $(  "#mypanel"  ).panel(  "open"  );
+            });
+        });
+
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<div data-role="page" data-theme="a">
+
+    <div data-role="header" data-position="fixed" data-theme="a">
+        <a href="index.html" data-icon="back">back</a>
+        <h1>文章题目</h1>
+    </div>
+    <div data-role="content">
+        <h4 style="text-align: center;"><small>作者：李克全 发表日期：2018年3月20日19:57:47</small></h4>
+        <h4>哈哈哈哈</h4>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="navbar">
+            <ul>
+                <li><a id="chat" href="#" data-icon="arrow-l">上一篇</a> </li>
+                <li><a id="email" href="#" data-icon="arrow-r">下一篇</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

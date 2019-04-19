@@ -1,0 +1,119 @@
+﻿
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>详细</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <link href="../css/findstyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+
+        <!--
+        -->
+
+        <section class="aui-flexView">
+            <header class="aui-navBar aui-navBar-fixed b-line">
+                <a href="javascript:;" class="aui-navBar-item">
+                    <i class="icon "></i>
+                </a>
+                <div class="aui-center">
+                    <span class="aui-center-title" id="news_title">订阅</span>
+                </div>
+
+            </header>
+            <section class="aui-scrollView">
+
+                <div class="m-slider" data-ydui-slider>
+                    <div class="slider-wrapper">
+                        <div class="slider-item">
+                            <a href="javascript:;">
+                                <img src="../images/banner.jpg" id="news_img">
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="slider-pagination"></div>
+                </div>
+
+                <div class="aui-head b-line">
+                    <div class="aui-flex">
+                        <div class="aui-flex-box">
+
+                        </div>
+                        <div class="aui-arrow"></div>
+                    </div>
+                </div>
+                <div class="aui-site">
+                   <h3 id="news_context" style="text-align: center"></h3>
+                </div>
+
+            </section>
+            <footer class="aui-tabBar aui-tabBar-fixed">
+                <ul>
+                    <li class="aui-tabBar-item">
+                        <a id="home" href="main.html">
+                            <img src="../images/icon-footer01.png" alt="">
+                            <h4>首页</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item">
+                        <a id="find" href="find.html">
+                            <img src="../images/icon-footer02.png" alt="">
+                            <h4>发现</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item active">
+                        <a id="subscription" href="subscription.html">
+                            <img src="../images/icon-footer03.png" alt="">
+                            <h4>订阅</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item">
+                        <a id="me" href="me.html">
+                            <img src="../images/icon-footer04.png" alt="">
+                            <h4>我的</h4>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </section>
+<script type="text/javascript">
+
+// var news_title = sessionStorage.getItem("news_title");
+//
+// alert(news_title)
+//
+//     // alert(sessionStorage.news_title+"d"+sessionStorage.news_img);
+//         document.getElementById("news_title").innerHTML=sessionStorage.news_title;
+//     //     document.getElementById("news_img").src=sessionStorage.news_img;
+//     //     document.getElementById("newscontext").innerHTML=sessionStorage.news_context;
+
+
+
+
+</script>
+        <script type="text/javascript">
+
+            function getUrlParam(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                if (r != null) return decodeURIComponent(r[2]); return null; //返回参数值
+
+            }
+            var news_title = getUrlParam('news_title');
+            var news_img = getUrlParam('news_img');
+            var news_context = getUrlParam('news_context');
+            var news_titles = document.getElementById("news_title");
+            var news_imgs = document.getElementById("news_img");
+            var news_contexts = document.getElementById("news_context");
+            news_titles.innerHTML = news_title;
+            news_imgs.src = news_img;
+            news_contexts.innerHTML = news_context;
+        </script>
+    </body>
+</html>

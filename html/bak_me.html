@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>个人中心</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <link href="../css/mestyle.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="../js/jquery.min.js"></script>
+
+    </head>
+
+
+    <body>
+        <!--
+        -->
+
+        <section class="aui-flexView">
+
+            <section class="aui-scrollView">
+                <div class="aui-callUser-head b-line">
+                    <div class="aui-callUser-user">
+                        <img src="../images/user-logo-001.png" alt="">
+                    </div>
+                    <div class="aui-callUser-title">
+                        <h2 ><a href="login.html">点击登录</a></h2>
+                    </div>
+                </div>
+                <div class="divHeight b-line"></div>
+                <div class="aui-course-list">
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-001.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>我的钱包</h2>
+                        </div>
+                        <div class="aui-arrow">
+                            <p>0书豆 1张书券</p>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-002.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>书豆充值</h2>
+                        </div>
+                        <div class="aui-arrow">
+                            <button>充值</button>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex ">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-003.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>开通会员</h2>
+                        </div>
+                        <div class="aui-arrow">
+                            <button>开通</button>
+                        </div>
+                    </a>
+                    <div class="divHeight"></div>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-004.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>我的签到</h2>
+                        </div>
+                        <div class="aui-arrow">
+                            <p>已签到</p>
+                        </div>
+                    </a>
+
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-005.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>打赏记录</h2>
+                        </div>
+                        <div class="aui-arrow">
+
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-006.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>我的评论</h2>
+                        </div>
+                        <div class="aui-arrow">
+
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="aui-flex b-line">
+                        <div class="aui-cou-img">
+                            <img src="../images/icon-call-007.png" alt="">
+                        </div>
+                        <div class="aui-flex-box">
+                            <h2>我的收藏</h2>
+                        </div>
+                        <div class="aui-arrow">
+
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <footer class="aui-tabBar aui-tabBar-fixed">
+                <ul>
+                    <li class="aui-tabBar-item">
+                        <a id="home" href="main.html">
+                            <img src="../images/icon-footer01.png" alt="">
+                            <h4>首页</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item">
+                        <a id="find" href="find.html">
+                            <img src="../images/icon-footer02.png" alt="">
+                            <h4>发现</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item active">
+                        <a id="subscription" href="subscription.html">
+                            <img src="../images/icon-footer03.png" alt="">
+                            <h4>订阅</h4>
+                        </a>
+                    </li>
+                    <li class="aui-tabBar-item">
+                        <a id="me" href="me.html">
+                            <img src="../images/icon-footer04.png" alt="">
+                            <h4>我的</h4>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </section>
+<script>
+    //setInterval("redirect();", 100);
+    function redirect() {
+       // alert("addEventListener");
+       //  api.addEventListener({
+       //
+       //      name: 'loginSuccess'
+       //  }, function(ret, err){
+       //      if( ret ){
+       //          //执行登录成功相关指令
+       //          alert("已登录用户")
+       //      }
+       //  });
+        // api.addEventListener({
+        //     name: 'batterylow'
+        // }, function(ret, err) {
+        //     if (ret) {
+        //         alert(JSON.stringify(ret));
+        //     } else {
+        //         alert(JSON.stringify(err));
+        //     }
+        // });
+    }
+
+    apiready = function() {
+        api.addEventListener({
+            name: 'loginSuccess'
+        }, function(ret, err){
+            alert("chen");
+            if( ret ){
+                //执行登录成功相关指令
+                alert("已登录用户")
+            }
+        });
+        // api.addEventListener({
+        //     name: 'batterylow' // 设备电池电量低事件，字符串类型
+        // }, function(ret, err) {
+        //     if (ret) {
+        //         alert(JSON.stringify(ret));
+        //     } else {
+        //         alert(JSON.stringify(err));
+        //     }
+        // });
+//
+//         api.addEventListener({
+//             name: 'batterystatus' // 设备电池状态改变事件，如电量变化或正在充电，字符串类型
+//         }, function(ret, err) {
+//             if (ret) {
+//                 alert(JSON.stringify(ret));
+//             } else {
+//                 alert(JSON.stringify(err));
+//             }
+//         });
+//
+// //        api.addEventListener({
+// //            name: 'keyback' // 设备 back 键被点击事件，仅 Android 平台有效，字符串类型
+// //        }, function(ret, err) {
+// //            alert('按了返回键');
+// //        });
+// //
+// //        api.addEventListener({
+// //            name: 'keymenu' // 设备 menu 键被点击事件，仅 Android 平台有效
+// //        }, function(ret, err) {
+// //            alert('按了菜单键');
+// //        });
+// //
+// //        api.addEventListener({
+// //            name: 'volumeup' // 设备音量加键被点击事件，仅 Android 平台有效
+// //        }, function(ret, err) {
+// //            alert('按了音量加键');
+// //        });
+//
+//
+//         api.addEventListener({
+//             name:'offline' // 断网了
+//         }, function(ret, err){
+//             alert('断网了');
+//         });
+//
+//         api.addEventListener({
+//             name:'online' // 已经连上网络
+//         }, function(ret, err){
+//             alert('已连接到网络');
+//         });
+//
+//         api.addEventListener({
+//             name:'scrolltobottom', // 滑动到最底事件
+//             extra:{
+//                 threshold:0            //设置距离底部多少距离时触发，默认值为0，数字类型
+//             }
+//         }, function(ret, err){
+//             alert('已滚动到底部');
+//         });
+//
+//         api.addEventListener({
+//             name:'shake' // 摇一摇
+//         }, function(ret, err){
+//             alert('触发了摇一摇事件');
+//         });
+//
+// //        api.addEventListener({
+// //            name:'swipedown'
+// //        }, function(ret, err){
+// //            alert('向下轻扫');
+// //        });
+//
+//         api.addEventListener({
+//             name:'swipeleft'
+//         }, function(ret, err){
+//             alert('向左轻扫');
+//         });
+//
+//         api.addEventListener({
+//             name:'swiperight'
+//         }, function(ret, err){
+//             alert('向右轻扫');
+//         });
+//
+// //        api.addEventListener({
+// //            name:'swipeup'
+// //        }, function(ret, err){
+// //            alert('向上轻扫');
+// //        });
+//
+//         api.addEventListener({
+//             name:'tap'
+//         }, function(ret, err){
+//             alert('点击了页面');
+//         });
+//
+//         api.addEventListener({
+//             name:'longpress'
+//         }, function(ret, err){
+//             alert('长按了页面');
+//         });
+
+//            api.addEventListener({
+//                name:'viewappear'
+//            }, function(ret, err){
+//                alert('window显示');
+//            });
+
+    }
+
+</script>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Amaze UI Examples登录界面html5手机登陆界面</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<link rel="stylesheet" href="../css/amazeui.min.css">
+	<link rel="stylesheet" href="../css/app.css">
+	<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"> </script>
+
+</head>
+<body>
+<div class="am-g">
+	<!-- LOGO -->
+	<div class="am-u-sm-12 am-text-center" >
+		<i class="am-icon-twitch myapp-login-logo"></i>
+	</div>
+	<!-- 登陆框 -->
+	<div class="am-u-sm-11 am-u-sm-centered">
+
+			<fieldset class="myapp-login-form am-form-set">
+				<div class="am-form-group am-form-icon">
+					<i class="am-icon-user"></i>
+					<input type="text" id="username" class="myapp-login-input-text am-form-field" placeholder="请输入您的账号">
+				</div>
+				<div class="am-form-group am-form-icon">
+					<i class="am-icon-lock"></i>
+					<input type="text" id="password" class="myapp-login-input-text am-form-field" placeholder="至少6个字符">
+				</div>
+			</fieldset>
+			<button  class="myapp-login-form-submit am-btn am-btn-primary am-btn-block " onclick="login()">登 陆</button>
+
+	</div>
+	<div class="am-text-center am-u-sm-11 am-u-sm-centered myapp-login-form-shortcut">
+		<hr class="myapp-login-form-hr" />
+		<span class="myapp-login-form-hr-font">第三方登陆</span>
+	</div>
+
+	<div class="am-u-sm-12 am-text-center myapp-login-form-listico" >
+		<div class="am-u-sm-4 am-text-center" >
+			<i class="am-icon-btn am-primary am-icon-qq"></i>
+		</div>
+		<div class="am-u-sm-4 am-text-center" >
+			<i class="am-icon-btn am-danger am-icon-weibo"></i>
+		</div>
+		<div class="am-u-sm-4 am-text-center" >
+			<i class="am-icon-btn am-success am-icon-weixin"></i>
+		</div>
+	</div>
+
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="../js/jquery.min.js"></script>
+
+<![endif]-->
+
+<script>
+    function login(){
+        var uname = document.getElementById("username").value;
+        var upw = document.getElementById("password").value;
+        //alert(uname+upw);
+        api.showProgress();//显示加载进度框
+        //使用api.ajax请求数据，具体使用方法和参数请看官方文档，这里使用get方法演示
+        api.ajax({
+            //url:'http://10.3.205.251/get.php',//如果地址访问不到会请求出错，请填写自己的接口地址
+            url:'http://192.168.43.5:8080/news/common/login/userlogin?username=1&password=1',
+            method:'get',
+            cache:'false',
+            timeout:30,
+            dataTpye:'json',
+        },function(ret,err){
+            api.hideProgress();//隐藏加载进度框
+            if(ret.length==0){
+                alert("用户名或密码错误");
+            }
+            if(ret){
+               // alert(ret.length);
+               //  for(var i=0;i<ret.length;i++){
+                   // alert(ret.username);
+                    if(ret.username!=""){
+                        //alert("登录成功");
+                        // setInterval("redirect();",2000);
+                        //setTimeout(alert("登录成功"), 1000);
+                        //  window.location.href="main.html";
+
+                        // $.mobile.loading("show",{
+                        //     theme: 'b', text: ret.username+'登录成功!正在跳转...', html: '',
+                        //     textVisible: true,textonly:true });
+                        //window.location.href="main.html";
+                        setInterval("redirect();",1000);
+                    }
+                // }
+                // alert(ret.username)
+            //
+            }else{
+                api.alert({msg:('错误码：'+err.code+'；错误信息：'+err.msg+'网络状态码：'+err.statusCode)});
+            }
+        });
+
+
+
+    }
+    function redirect()
+    {
+        window.location.href="main.html";
+    }
+</script>
+</body>
+</html>

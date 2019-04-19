@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" data-theme="a">
+    <div data-role="header">
+        <a href="index.html">返回</a>
+        <h1>注册</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <form method="post" action="index.html">
+            <div class="ui-field-contain">
+                <label for="fullname">全名：</label>
+                <input type="text" name="fullname" id="fullname" placeholder="15210121215-陈俊仕">
+                <label for="bday">生日：</label>
+                <input type="date" name="bday" id="bday">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" placeholder="you email?">
+                <label for="info" >个性签名:</label>
+                <textarea name="addinfo" id="info" placeholder="小猪佩奇身上纹。。。"></textarea>
+                <label for="select_fruit">你喜欢什么水果？</label>
+                <select name="select" id="select_fruit">
+                    <option value="apple">apple</option>
+                    <option value="banana">banana</option>
+                    <option value="orange">orange</option>
+                </select>
+                <label >喜欢那些电影？</label>
+                <label for="checkbox1">复仇者联盟 </label>
+                <input type="checkbox" name="checkbox" value="复仇者联盟" id="checkbox1">
+                <label ></label>
+                <label for="checkbox2">破坏者联盟 </label>
+                <input type="checkbox" name="checkbox" value="搞笑者联盟" id="checkbox2">
+                <label></label>
+                <label for="checkbox3">搞笑者联盟 </label>
+                <input type="checkbox" name="checkbox" value="破坏者联盟" id="checkbox3">
+                <label for="points">身高(cm)：</label>
+                <input type="range" value="170" max="250" min="100" name="points" id="points">
+                <label for="search">搜索</label>
+                <input type="search" name="search" id="search">
+
+                <label >性别</label>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+                <label ></label>
+                <label for="female">Female</label>
+                <input type="radio" value="radio" id="female" name="gender">
+                <label for="switch">婚姻状况：</label>
+                <input type="checkbox" data-role="flipswitch" name="switch" id="switch">
+
+
+
+            </div>
+            <input type="submit" data-inline="true" value="提交">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
