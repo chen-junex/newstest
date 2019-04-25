@@ -195,17 +195,18 @@
             el: '#app',
             data: {
                 flagIsLogin: false,
-                zhanghao: "",
+                user: "",
                 dingYueList: [],
                 myDingYueList: []
             },
             methods: {
                 init: function () {
                     //判断是否登录
-                    var zhangHao = H.getStorage("zhanghao");
-                    if (typeof (zhangHao) != 'undefined' && zhangHao.length > 0) {
+                    var user = H.getStorage("user");
+                    // if (typeof (user) != 'undefined' && user.length > 0) {
+                    if (user!=null) {
                         vm.flagIsLogin = true;
-                        vm.zhanghao = zhangHao;
+                        vm.user = user;
                     }
                     vm.loadDingYueList();
                     //判断自己的订阅列表存储

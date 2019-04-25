@@ -232,9 +232,9 @@
                                             user_name: user.userName,
                                             evaluate_context: ret.text,
                                             news_id: pageParam.news_id,
-                                            user_id: user.id,
+                                            user_id: user.id
                                             // evaluate_datetime: new Date().toLocaleString()
-                                            evaluate_datetime: new Date().getDate().toString()
+                                            // evaluate_datetime: new Date().toLocaleString()
                                         }
                                         $.ajax({
                                             type: "POST",
